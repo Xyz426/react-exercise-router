@@ -4,6 +4,8 @@ import {BrowserRouter as Router, BrowserRouter, Route,NavLink} from 'react-route
 import Home from './Home';
 import MyProfile from './MyProfile';
 import AboutMe from './AboutMe';
+import Products from './Products';
+import Product from './Product';
 
 class App extends Component {
   state = {
@@ -14,11 +16,14 @@ class App extends Component {
       <BrowserRouter>
         <nav>
           <NavLink to="/" activeStyle={{textDecoration:'underline'}}>Home</NavLink>
+          <NavLink to='/products' activeStyle={{textDecoration:'underline'}}>Products</NavLink>
           <NavLink to='/my-profile' activeStyle={{textDecoration:'underline'}}>My Profile</NavLink>
-          <NavLink to='/about-us' activeStyle={{textDecoration:'underline'}}>About Us</NavLink>
+          <NavLink to='/about-us' activeStyle={{textDecoration:'underline'}}>About Us</NavLink>          
         </nav>
 
         <Route exact path='/' component={Home}/>
+        <Route exact path='/products/:id' component={Product}/>
+        <Route exact path='/products' component={Products}/>
         <Route exact path='/my-profile' component={MyProfile}/>
         <Route exact path='/about-us' component={AboutMe}/>
       </BrowserRouter>
